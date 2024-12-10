@@ -26,19 +26,16 @@ jobs:
 
     # Step 3: Restore dependencies
     - name: Restore dependencies
-      run: dotnet restore .github\workflows\SampleProject\SampleProject.csproj
+      run: dotnet restore .github/workflows/SampleProject/SampleProject.csproj
 
     # Step 4: Build the project
     - name: Build the project
-      run: dotnet build --configuration Release
+      run: dotnet build .github/workflows/SampleProject/SampleProject.csproj --configuration Release
 
     # Step 5: Run tests
     - name: Run tests
-      run: dotnet test --configuration Release
+      run: dotnet test .github/workflows/SampleProject/SampleProject.csproj --configuration Release
 
     # Step 6: Publish the build (optional for deployment purposes)
     - name: Publish the build
-      run: dotnet publish --configuration Release --output ./publish
-
-    # Additional steps for deployment (optional) can go here
-    # Example: Deploy to Azure, Docker, or another environment
+      run: dotnet publish .github/workflows/SampleProject/SampleProject.csproj --configuration Release --output ./publish
