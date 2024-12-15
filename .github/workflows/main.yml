@@ -17,7 +17,7 @@ jobs:
 
     steps:
     # Step 1: Checkout the code from the repository
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     # Step 2: Set up .NET SDK (specify the version you're using)
@@ -28,16 +28,16 @@ jobs:
 
     # Step 3: Restore dependencies
     - name: Restore dependencies
-      run: dotnet restore .github/workflows/SampleProject/SampleProject.csproj
+      run: dotnet restore SampleProject.Tests/SampleProject.Tests.csproj 
 
     # Step 4: Build the project
     - name: Build the project
-      run: dotnet build .github/workflows/SampleProject/SampleProject.csproj --configuration Release
+      run: dotnet build SampleProject.Tests/SampleProject.Tests.csproj 
 
     # Step 5: Run tests
     - name: Run tests
-      run: dotnet test .github/workflows/SampleProject/SampleProject.csproj --configuration Release
+      run: dotnet test SampleProject.Tests/SampleProject.Tests.csproj 
 
     # Step 6: Publish the build (optional for deployment purposes)
     - name: Publish the build
-      run: dotnet publish .github/workflows/SampleProject/SampleProject.csproj --configuration Release --output ./publish
+      run: dotnet publish SampleProject.Tests/SampleProject.Tests.csproj  --output ./publish
