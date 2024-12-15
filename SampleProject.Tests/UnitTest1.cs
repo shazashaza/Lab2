@@ -5,7 +5,7 @@ public class UnitTest1
     [Fact]
     public void TestAddition()
     {
-        int result = 2 + 2;
-        Assert.Equal(4, result);
+        int result = 5 - 3;
+        Assert.Equal(2, result); 
     }
 }
